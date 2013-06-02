@@ -1,0 +1,30 @@
+<div class="green-block">
+    <div class="container">
+        <div class="row">
+            <h1 class="span12"><%= @user.name %></h1>
+
+            <% flash.each do |key, value| %>
+                <div class="span12 alert alert-<%= key %>"><%= value %></div>
+            <% end %> 
+
+            <br>&nbsp;<br>
+
+            <div class="span5 signup-box">
+
+                <p>
+                  <b>Name:</b>
+                  <%= @user.name %>
+                </p>
+
+                <p>
+                  <b>Email:</b>
+                  <%= @user.email %>
+                </p>
+
+
+                <%= link_to 'Edit', edit_user_path(@user) %> |
+                <%= link_to 'Back', users_path %>
+            </div>
+        </div>
+    </div>
+</div>

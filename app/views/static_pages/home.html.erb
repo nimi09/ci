@@ -1,0 +1,31 @@
+<div class="green-block">
+    <div class="container">
+
+        <% flash.each do |key, value| %>
+            <div class="alert alert-<%= key %>"><%= value %></div>
+        <% end %> 
+
+        <div class="logo-big-bg">
+            <div class="slogan">
+                <b>
+                    „Many small people, who in many small places, do many small things, can alter the face of the world.“</b>
+                <br>
+                - Michael Franti
+            </div>
+            <div class="you-box">
+                YOU are<br>
+                <b class="you-box-percent">0,000000014%</b><br>
+                of the worlds population!<br>
+                <br>
+                If you want to make an impact, join to day and start to participate on any project and see how you can alter the face of the world!
+                <br>&nbsp;
+                <br>
+                <% unless signed_in? %>
+                    <%= link_to "Join for free now", signup_path, class: "btn btn-large btn-primary" %>
+                <% else %>
+                    <%= link_to "Create New Impact", '#', class: "btn btn-large btn-primary" %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="green-block">
+    <div class="container">
+        <div class="row">
+            <h1 class="offset3">Sign up to Crowd Impact</h1>
+        
+            <br>
+
+            <div class="span5 offset3 signup-box">
+                <%= form_for(@user) do |f| %>
+                    <%= render 'form', f: f %>
+                    <%= f.submit "Sign up" , class: "btn btn-primary" %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>

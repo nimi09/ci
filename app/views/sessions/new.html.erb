@@ -1,0 +1,32 @@
+<div class="green-block">
+    <div class="container">
+        <div class="row">
+            <h1 class="offset3">Log in</h1>
+    
+            <br>
+
+            <div class="span5 offset3 signup-box">
+
+                <% flash.each do |key, value| %>
+                    <div class="alert alert-<%= key %>"><%= value %></div>
+                <% end %> 
+
+                <%= form_for(:session, url: sessions_path) do |f| %>
+
+                  <%= f.label :email %>
+                  <%= f.text_field :email %>
+
+                  <%= f.label :password %>
+                  <%= f.password_field :password %>
+
+                  <br>&nbsp;<br>
+
+                  <%= f.submit "Sign in", class: "btn btn-primary" %>
+                <% end %>
+
+                <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+
+            </div>
+        </div>
+    </div>
+</div>

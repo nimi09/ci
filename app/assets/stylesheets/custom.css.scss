@@ -1,0 +1,163 @@
+/* STANDARDS */
+
+@import "bootstrap";
+
+@mixin box-sizing {
+  -moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+  box-sizing: border-box;    
+}
+
+/* VARIABLES */
+
+$main-green: #8c4;
+$yellow-green: #ff8;
+
+$main-gray:  #333;
+$footer-gray: #222;
+$dark-gray: #111;
+
+body {
+  background-color: $footer-gray;
+}
+
+a {
+    color: $main-green;
+}
+
+a:hover {
+    color: #480;    
+};
+
+
+/* MENU */
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.2em;
+  color: #fff;
+  padding-top: 0px;
+  font-weight: 200;
+  line-height: 65px;
+
+  padding-left: 110px;
+  padding-right: 15px;
+  background: url("../assets/logo-small-01.png") no-repeat left bottom; 
+
+}
+
+#logo:hover {
+  color: $main-green;
+  text-decoration: none;
+}
+
+.navbar-inverse .navbar-inner {
+    background-color: $main-gray;
+    background-image: none;
+}
+
+nav ul li {
+  line-height: 45px;
+}
+
+.navbar .nav .dropdown-toggle .caret {
+  vertical-align: middle;
+  margin-top: -3px;
+}
+
+/* HOME */
+
+.green-block {
+    display: block;
+    margin: 0;
+    padding: 0;
+    padding-top: 100px;
+    padding-bottom: 80px;
+    width: 100%;
+    background-color: $main-green;
+}
+
+.logo-big-bg {
+    min-height: 320px;
+    background: url("../assets/logo-big-01.png") center center no-repeat;
+}
+
+.slogan {
+    display: inline-block;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    width: 350px;
+    top: 340px;
+
+    text-shadow: 0 0 15px rgba(255,255,128, 1);
+}
+
+.you-box {
+    display: inline-block;
+    float: right;
+    margin: 0;
+    padding: 0;
+    width: 250px;
+
+    text-align: right;
+
+    text-shadow: 0 0 15px rgba(255,255,128, 1);
+}
+
+.you-box-percent {
+    font-size: 2.5em;
+    line-height: 1.5em;
+}
+
+/* SIGN UP */
+.signup-box {
+    padding: 20px;
+    color: #fff;
+    background-color: $main-gray;
+    border: 1px solid $dark-gray;
+    box-shadow: 0 0 15px rgba(0,0,0,0.33) inset;
+}
+
+/* FORMS */
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+input {
+  height: auto !important;
+}
+
+
+.field_with_errors {
+    @extend .control-group;
+    @extend .error;
+    border-color: #f00;
+}
+
+/* FOOTER */
+.footer {
+  display: block;
+//  position: absolute;
+  margin: 0;
+  padding: 0;
+  padding-top: 40px;
+  padding-bottom: 40px;
+
+  width: 100%;
+  height: 50px;
+  min-height: 200px;
+
+//  left: 0;
+//  bottom: 0;
+
+  color: $main-green;
+  background-color: $footer-gray;
+  border-top: 3px solid $dark-gray;
+}
