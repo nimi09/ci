@@ -2,6 +2,13 @@
 
 @import "bootstrap";
 
+* {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
 @mixin box-sizing {
   -moz-box-sizing: border-box; 
   -webkit-box-sizing: border-box; 
@@ -12,6 +19,7 @@
 
 $main-green: #8c4;
 $yellow-green: #ff8;
+$dark-green: #465438;
 
 $main-gray:  #333;
 $footer-gray: #222;
@@ -84,12 +92,12 @@ nav ul li {
 }
 
 .slogan {
-    display: inline-block;
-    position: absolute;
+    display: block;
+//    position: absolute;
     margin: 0;
     padding: 0;
     width: 350px;
-    top: 340px;
+    top: 20px;
 
     text-shadow: 0 0 15px rgba(255,255,128, 1);
 }
@@ -111,6 +119,42 @@ nav ul li {
     line-height: 1.5em;
 }
 
+/* DIFFERENT BLOCKS */
+
+.std-block {
+    display: block;
+    margin: 0;
+    padding: 0;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    width: 100%;
+}
+
+.std-block h1 {
+  margin-bottom: 30px;
+}
+
+.dark-gray-block {
+    color: $main-green;
+    background-color: $main-gray;
+
+//    background-color: #272821;
+
+    border-top: 5px solid $footer-gray;
+}
+
+.dark-gray-block h1 {
+  color: #fff;
+}
+
+.dark-green-block {
+    color: #fff;
+    background-color: $dark-green;
+
+    border-top: 10px solid $footer-gray;
+
+}
+
 /* SIGN UP */
 .signup-box {
     padding: 20px;
@@ -118,6 +162,71 @@ nav ul li {
     background-color: $main-gray;
     border: 1px solid $dark-gray;
     box-shadow: 0 0 15px rgba(0,0,0,0.33) inset;
+}
+
+/* PROJECT Thumbnails */
+
+.dark-gray-block .thumbnail {
+    @include box_sizing;
+
+    padding: 10px;
+
+    min-height: 250px;
+
+    color: $main-gray;
+    background: $main-green;
+    border: none;
+
+// variante gray box
+/*    color: #fff;
+    background-color: $main-gray;
+    box-shadow: 0 0 15px rgba(0,0,0,0.33) inset;
+*/
+
+// Variante SignupBox
+    padding: 20px;
+    color: #fff;
+    color: $main-gray;
+    background-color: $main-gray;
+    background-color: #fff;    
+    border: 1px solid $dark-gray;
+    box-shadow: 0 0 15px rgba(0,0,0,0.33) inset;
+
+//    border-radius: 0;
+    border: 1px solid $dark-gray;
+
+}
+
+.dark-gray-block .thumbnail .btn {
+  @include box_sizing;
+  width: 80%;
+  line-height: 35px;
+
+  position: absolute;
+  bottom: 20px;
+  left: 30px;
+
+  color: $main-green;
+  background: $main-gray;
+  border: none;
+
+    -webkit-transition: background-color .25s;
+       -moz-transition: background-color .25s;
+         -o-transition: background-color .25s;
+            transition: background-color .25s;
+
+// Variante Signup Box
+  color: $main-gray;
+  background: $main-green;
+  text-shadow: none;
+}
+
+.dark-gray-block .thumbnail .btn:hover {
+    background: #444;
+
+// Variante Signup Box
+  background: rgba($main-green,.7);
+  background: rgba(#669932,1);
 }
 
 /* FORMS */
@@ -139,6 +248,25 @@ input {
     @extend .control-group;
     @extend .error;
     border-color: #f00;
+}
+
+/* Pofile Project Feed */
+
+.project-feed-list ul {
+    display: block;
+    margin: 0;
+    padding: 0;
+    background-color: $main-gray;
+}
+
+.project-feed-list ul li {
+    margin: 0;
+    padding: 5px 20px 10px;
+    color: #fff;
+    border: 1px solid rgba(#fff,.1);
+}
+
+.project-feed-list ul li h5 {
 }
 
 /* FOOTER */

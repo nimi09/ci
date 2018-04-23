@@ -23,9 +23,22 @@
                 <% unless signed_in? %>
                     <%= link_to "Join for free now", signup_path, class: "btn btn-large btn-primary" %>
                 <% else %>
-                    <%= link_to "Create New Impact", '#', class: "btn btn-large btn-primary" %>
+                    <%= link_to "Create New Impact", new_project_path, class: "btn btn-large btn-primary" %>
                 <% end %>
             </div>
         </div>
     </div>
 </div>
+
+<% if @projects %>
+    <div class="std-block dark-gray-block">
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <h1>Browse current Impacts</h1>
+                    <%= render 'shared/project_thumb', projects: @projects %>
+                </div>
+            </div>
+        </div>
+    </div>
+<% end %>

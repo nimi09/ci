@@ -1,0 +1,8 @@
+<li>
+    <h5><%= link_to feed_item.title, feed_item.user %></h5>
+    <p>
+        <%= feed_item.title %>
+    </p>
+    (<%= time_ago_in_words(feed_item.created_at) %> ago.)
+     
+</li>

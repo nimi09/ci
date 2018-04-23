@@ -10,6 +10,9 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find(params[:id])
+        if signed_in?
+            @feed_projects = current_user.projects_feed.paginate(page: params[:page]).order("created_at DESC")
+        end
     end
 
     def new
@@ -51,13 +54,6 @@ class UsersController < ApplicationController
     end
 
     private
-
-        def signed_in_user
-            unless signed_in?
-                store_location
-                redirect_to login_url, notice: "Please sign in first."
-            end
-        end
 
         def correct_user
             @user = User.find(params[:id])

@@ -1,0 +1,13 @@
+                <ul class="thumbnails">
+                    <% @projects.each do |p| %>
+                        <li class="span4 pull-left">
+                            <div class="thumbnail">
+                                <h3><%= p.title %></h3>
+                                <p><%= p.description %></p>
+                                <% if signed_in? %>
+                                    <%= link_to "Make your Impact NOW", new_project_path, class: "btn btn-primary" %>
+                                <% end %>
+                            </div>
+                        </li>
+                    <% end %>
+                </ul>

@@ -1,6 +1,23 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  name            :string(255)
+#  email           :string(255)
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  password_digest :string(255)
+#  remember_token  :string(255)
+#  admin           :boolean          default(FALSE)
+#
+
 class User < ActiveRecord::Base
     attr_accessible :email, :name, :password, :password_confirmation
     has_secure_password
+    has_many :projects
+    has_many :impacts, foreign_key: "follower_id", dependent: :destroy
+
 
     before_save { |user| user.email = email.downcase }
     before_save :create_remember_token
@@ -15,6 +32,14 @@ class User < ActiveRecord::Base
     validates :password, length: { minimum: 6 }
 
     validates :password_confirmation, presence: true
+
+    def projects_feed
+        Project.where("user_id = ?", id)
+    end
+
+    def follow!(aproject)
+        impacts.create!(followed_id: aproject.id)
+    end
 
     private
 

@@ -21,10 +21,21 @@
                   <%= @user.email %>
                 </p>
 
-
-                <%= link_to 'Edit', edit_user_path(@user) %> |
+                <% if current_user?(@user) %>
+                    <%= link_to 'Edit', edit_user_path(@user) %> |
+                <% end %>
                 <%= link_to 'Back', users_path %>
             </div>
+
+            <% if @feed_projects.any? %>
+                <div class="span6 pull-right project-feed-list">
+                    <h3>All Projects:</h3>
+                    <ul>
+                        <%= render partial: 'shared/feed_item', collection: @feed_projects %>
+                    </ul>
+                </div>
+            <% end %>
+
         </div>
     </div>
 </div>

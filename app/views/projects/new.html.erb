@@ -1,0 +1,51 @@
+<div class="green-block">
+    <div class="container">
+        <div class="row">
+            <h1 class="span12">Create new Imapct</h1>
+    
+            <br>&nbsp;<br>
+
+            <div class="span5 signup-box">
+
+                <% flash.each do |key, value| %>
+                    <div class="alert alert-<%= key %>"><%= value %></div>
+                <% end %> 
+
+                <%= form_for(@project) do |f| %>
+
+                  <% if @project.errors.any? %>
+                      <div id="error_explanation">
+                          <div class="alert alert-error">
+                              <h5>The form contains <%= pluralize(@project.errors.count, "error") %>:</h5>
+                              <ul>
+                              <% @project.errors.full_messages.each do |msg| %>
+                              <li><%= msg %></li>
+                              <% end %>
+                              </ul>
+                          </div>
+                      </div>
+                  <% end %>
+
+                  <%= f.label :title %>
+                  <%= f.text_field :title %>
+
+                  <%= f.label :description %>
+                  <%= f.text_area :description %>
+
+                  <%= f.label :value1 %>
+                  <%= f.text_field :value1 %>
+
+                  <%= f.label :value2 %>
+                  <%= f.text_field :value2 %>
+
+                  <%= f.label :unit %>
+                  <%= f.text_field :unit %>
+
+                  <br>&nbsp;<br>
+
+                  <%= f.submit "Submit new Impact", class: "btn btn-primary" %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
